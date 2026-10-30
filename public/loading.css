@@ -1,0 +1,29 @@
+/* Carrega antes do JavaScript, evitando uma tela vazia na primeira visita. */
+body { margin: 0; background: #252422; }
+.site-skeleton { box-sizing: border-box; min-height: 100svh; background: #252422; color: #fffcf2; padding: 0 clamp(24px,5.5vw,112px); }
+.site-skeleton *, .site-skeleton *::before, .site-skeleton *::after { box-sizing: border-box; }
+.skeleton-block { display: block; position: relative; overflow: hidden; background: #ccc5b91c; }
+.skeleton-block::after { content: ''; position: absolute; inset: 0; background: linear-gradient(100deg,transparent 20%,#fffcf26b 50%,transparent 80%); transform: translateX(-100%); animation: skeleton-shimmer 1.7s ease-in-out infinite; }
+.skeleton-header { height: 86px; display: flex; align-items: center; justify-content: space-between; gap: 24px; border-bottom: 1px solid #ccc5b970; }
+.skeleton-brand { width: 170px; height: 34px; }
+.skeleton-navigation { display: flex; gap: 28px; }
+.skeleton-navigation > span { width: 64px; height: 12px; }
+.skeleton-layout { min-height: calc(100svh - 86px); display: grid; align-items: center; grid-template-columns: minmax(0,1.12fr) minmax(0,1fr); gap: 5vw; padding: 40px 0 68px; }
+.skeleton-kicker { width: 45%; height: 10px; margin-bottom: 28px; }
+.skeleton-heading { width: 98%; height: clamp(40px,6.7vw,100px); margin-top: 12px; }
+.skeleton-heading-short { width: 86%; }
+.skeleton-lines { margin-top: 32px; display: grid; gap: 10px; }
+.skeleton-lines span { width: 85%; height: 11px; }
+.skeleton-lines span:last-child { width: 65%; }
+.skeleton-button { width: 185px; height: 54px; margin-top: 28px; }
+.skeleton-art { width: min(100%,calc((100svh - 250px)*.94)); justify-self: end; aspect-ratio: .94; background: #ccc5b926; }
+@keyframes skeleton-shimmer { to { transform: translateX(100%); } }
+@media(max-width:760px) {
+  .skeleton-header { height: 76px; }
+  .skeleton-navigation span { display: none; }
+  .skeleton-navigation span:first-child { display: block; width: 24px; height: 20px; }
+  .skeleton-layout { grid-template-columns: minmax(0,1fr); gap: 32px; padding-block: 36px; min-height: calc(100svh - 76px); }
+  .skeleton-heading { height: 9.5vw; }
+  .skeleton-art { width: min(calc(100% - 14px),420px); justify-self: center; aspect-ratio: 1.07; }
+}
+@media(prefers-reduced-motion:reduce) { .skeleton-block::after { animation: none; background: none; } }
