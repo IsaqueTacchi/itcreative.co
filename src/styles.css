@@ -1,8 +1,9 @@
 @font-face { font-family: Poppins; src: url('/assets/poppins.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: Poppins; src: url('/assets/poppins-bold.ttf') format('truetype'); font-weight: 700; font-style: normal; font-display: swap; }
 :root {
   --cream: #fffcf2; --beige: #ccc5b9; --gray: #403d39; --black: #252422; --orange: #eb5e28;
   --page-padding: clamp(24px,5.5vw,112px); --header-height: 86px;
-  font-family: Poppins, sans-serif; font-synthesis: weight; color: var(--cream); background: var(--black); -webkit-font-smoothing: antialiased;
+  font-family: Poppins, sans-serif; font-synthesis: none; color: var(--cream); background: var(--black); -webkit-font-smoothing: antialiased;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: var(--header-height); }

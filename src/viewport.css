@@ -28,15 +28,47 @@ main > .section { min-block-size: var(--section-height); display: flex; flex-dir
   .steps h3 { margin-top: 14px; }
 }
 @media(max-width:760px) {
-  main > .section { gap: 32px; padding-block: 34px; }
-  .hero h1 { font-size: clamp(42px,10.5vw,78px); }
-  .hero-main { padding-block: 24px 36px; }
-  .about .about-portrait { width: min(calc(100% - 24px),300px); }
-  .about h2 { font-size: clamp(44px,12vw,76px); }
-  .about-content h3 { font-size: 24px; }
-  .project-stat strong { font-size: clamp(110px,32vw,220px); }
-  .dedication-copy h2 { font-size: clamp(34px,8vw,52px); }
-  .contact h2 { font-size: clamp(31px,7.6vw,54px); }
+  :root { --page-padding: clamp(20px,5.5vw,36px); }
+  .header { padding-inline: var(--page-padding); gap: 16px; padding-top: env(safe-area-inset-top,0px); }
+  .header.is-open { background: var(--black); }
+  .header.is-open.theme-sobre { background: var(--cream); }
+  .header.is-open.theme-dedicacao { background: var(--orange); }
+  .header nav { padding-inline: var(--page-padding); max-height: calc(100dvh - var(--header-height)); overflow-y: auto; overscroll-behavior: contain; padding-bottom: max(24px,env(safe-area-inset-bottom,0px)); }
+  .header nav a { opacity: .8; }
+  main > .section { min-block-size: auto; gap: 36px; padding-block: 44px; }
+  .hero h1 { font-size: clamp(34px,10.2vw,72px); line-height: 1.08; letter-spacing: -.065em; margin-block: 24px; }
+  .hero-main { padding-block: 12px 20px; }
+  .hero-copy > .eyebrow { font-size: 10px; letter-spacing: .1em; }
+  .accent-line { flex-shrink: 0; }
+  .hero-detail { max-width: 36ch; gap: 20px; }
+  .hero-detail > p,.body-copy,.dedication-copy p,.contact-action > p { font-size: 14px; line-height: 1.8; }
+  .film-link { font-size: 14px; }
+  .hero-bottom { gap: 8px 20px; }
+  .explore-link,.social-link { font-size: 11px; }
+  .eyebrow,.project-stat > .eyebrow { font-size: 10px; letter-spacing: .12em; }
+  .about-grid { gap: 32px; }
+  .about .about-portrait { width: min(calc(100% - 32px),280px); }
+  .about h2 { font-size: clamp(40px,11vw,64px); line-height: 1.06; max-width: 8em; }
+  .about-content h3 { font-size: clamp(21px,5.5vw,26px); margin-top: 20px; }
+  .about-portrait figcaption { font-size: 10px; }
+  .value-list { gap: 20px; }
+  .value-list h3 { font-size: 17px; }
+  .value-list p,.steps p { font-size: 13px; line-height: 1.8; }
+  .dedication-grid { gap: 28px; }
+  .project-stat strong { font-size: clamp(96px,29vw,180px); min-inline-size: 0; }
+  .dedication-copy h2 { font-size: clamp(32px,8.5vw,52px); }
+  .dedication-note { gap: 16px; align-items: flex-start; }
+  .dedication-note p { font-size: 12px; }
+  .contact h2 { font-size: clamp(30px,8vw,52px); line-height: 1.15; letter-spacing: -.055em; }
+  .contact-link { width: 100%; justify-content: space-between; gap: 16px; font-size: 24px; min-height: 56px; }
+  .steps { gap: 20px; }
+  .steps h3 { font-size: 18px; }
+  .contact-bottom { flex-wrap: wrap; gap: 12px 20px; }
+  .contact-bottom > span { max-width: none; font-size: 10px; }
+  .footer { padding-inline: var(--page-padding); gap: 12px 20px; padding-bottom: max(22px,env(safe-area-inset-bottom,0px)); }
+  .back-top { font-size: 11px; gap: 10px; }
+  .footer > p { font-size: 10px; }
+  .about-portrait .portrait-mat { translate: none; }
 }
 
 /* A fotografia se estende por trás do header apenas na abertura. */
@@ -45,5 +77,5 @@ main > .hero { min-block-size: 100svh; padding-block-start: calc(var(--header-he
   main > .hero { padding-block-start: calc(var(--header-height) + 26px); }
 }
 @media(max-width:760px) {
-  main > .hero { padding-block-start: calc(var(--header-height) + 34px); }
+  main > .hero { padding-block-start: calc(var(--header-height) + 24px); padding-block-end: 24px; gap: 24px; }
 }
